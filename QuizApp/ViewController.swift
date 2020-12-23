@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueBtn: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     
-    let questions = [ ["One plus five equals to six","True"]
-                      ,["Five plus Two equals to six","False"],
-                       ["One is greater than zero","True"]]
+    let questions = [   Questions(text: "Five plus six equals to eleven", answer: "True"),
+                        Questions(text: "Five is greater than six ", answer: "False"),
+                        Questions(text: "Ten multiply six is equals to sixty", answer: "True")]
     var questionNb = 0
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle
-        let actualAnswer = questions[questionNb][1]
+        let actualAnswer = questions[questionNb].answer
         
         if userAnswer == actualAnswer {
             print("Right")
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     
     func updateUi(){
         
-        questionText.text = questions[questionNb][0]
+        questionText.text = questions[questionNb].text
         
     }
 }
