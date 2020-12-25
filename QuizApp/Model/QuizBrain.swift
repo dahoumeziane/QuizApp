@@ -22,6 +22,7 @@ struct QuizBrain {
              Question(q: "No piece of square dry paper can be folded in half more than 7 times.", a: "False"),
              Question(q: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", a: "True")]
     var questionNb = 0
+    var score = 0
     func checkAnswer (_ userAnswer : String) -> Bool {
         
         if userAnswer == questions[questionNb].answer{
@@ -40,11 +41,18 @@ struct QuizBrain {
         return Float(questionNb + 1 )/Float(questions.count)
         
     }
+    
     mutating func nextQuestion () {
         self.questionNb += 1
     }
-    func score (){
-        print("Score")
+    
+    mutating func updateScore (){
+        score += 1
+    }
+    
+    mutating func resetQuiz () {
+        score = 0
+        questionNb = 0
     }
     
 
